@@ -8,7 +8,6 @@ public class SandHourglassEffect : MonoBehaviour
 {
     
     public GameObject[] figurePrefab;
-    //public GameObject prefab;
     public Button resetButton;
     public Transform spawnPoint;
     public float delayBetweenDrops = 0.2f;
@@ -18,7 +17,6 @@ public class SandHourglassEffect : MonoBehaviour
 
     public void Start()
     {
-        //StartCoroutine(DropFigurines());
         resetButton.interactable = false;
         StartCoroutine(DropFigure());
     }
@@ -26,7 +24,6 @@ public class SandHourglassEffect : MonoBehaviour
     {
         resetButton.interactable = false;
         RemoveMatching();
-        //StartCoroutine(DropFigurinesDelete());
         StartCoroutine(DropFigurines());
         
     }
@@ -43,8 +40,6 @@ public class SandHourglassEffect : MonoBehaviour
         foreach (GameObject obj in toRemove)
         {
             spawnedFigurines.Remove(obj);
-            //SandHourglassEffect.spawnedFigurines.Remove(obj);
-            //Destroy(obj);
             obj.SetActive(false);
         }
     }
@@ -61,24 +56,8 @@ public class SandHourglassEffect : MonoBehaviour
         {
             figurePrefabs.Remove(obj);
             Destroy(obj);
-            //obj.SetActive(false);
         }
         resetButton.interactable = true;
-    }
-    IEnumerator DropFigurinesDelete()
-    {
-        foreach (GameObject prefab in spawnedFigurines)
-        {
-            figurePrefabs.Add(prefab);
-            //Remove(figurine);
-            yield return new WaitForSeconds(0f);
-        }
-        foreach (GameObject prefab in spawnedFigurines)
-        {
-            spawnedFigurines.Remove(prefab);
-            //Remove(figurine);
-            yield return new WaitForSeconds(0f);
-        }
     }
     IEnumerator DropFigurines()
     {
@@ -105,7 +84,6 @@ public class SandHourglassEffect : MonoBehaviour
         {
             for (int i = 0; i < figurePrefab.Length; i++)
             {
-                //GameObject prefab in figurePrefabs;
                 GameObject figurine = Instantiate(figurePrefab[i], spawnPoint.position, Quaternion.identity);
                 figurine.transform.SetParent(spawnPoint);
                 Rigidbody2D rb = figurine.GetComponent<Rigidbody2D>();

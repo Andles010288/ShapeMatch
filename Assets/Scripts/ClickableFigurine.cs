@@ -16,7 +16,6 @@ public class ClickableFigurine : MonoBehaviour
     {
         if (collision.relativeVelocity.magnitude > 1.0f)
         {
-            //AudioSource audio = GetComponent<AudioSource>();
             if (audioCollision != null) audioCollision.Play();
         }
     }

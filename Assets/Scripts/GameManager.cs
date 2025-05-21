@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public PopupOpener PopupOpenerWin;
     public PopupOpener PopupOpenerLose;
     public Transform actionBar;
-    public GameObject slotPrefab;
     public AudioSource audioPopupOpener;
     public int maxSlots = 7;
 
@@ -78,20 +77,12 @@ public class GameManager : MonoBehaviour
         foreach (GameObject obj in toRemove)
         {
             actionSlots.Remove(obj);
-            //SandHourglassEffect.spawnedFigurines.Remove(obj);
             Destroy(obj);
         }
     }
 
     void CheckWinCondition()
     {
-        //SandHourglassEffect.spawnedFigurines;
-        //GameObject[] remainingFigurines = GameObject.FindGameObjectsWithTag("figure1");
-        //GameObject[] remainingFigurines = SandHourglassEffect.spawnedFigurines;
-        //if (remainingFigurines.Length == 0)
-        //{
-        //    Debug.Log("Победа: поле очищено!");
-        //}
         if (SandHourglassEffect.spawnedFigurines.Count == 0)
         {
             Debug.Log("Победа: поле очищено!");
